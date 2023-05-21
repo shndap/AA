@@ -80,7 +80,7 @@ public class SettingMenu extends Application {
 
     public void changeControlKeys() throws Exception {
         ChooseKeysMenu chooseKeysMenu = new ChooseKeysMenu();
-        chooseKeysMenu.ChooseKeysMenuInit(false);
+        chooseKeysMenu.ChooseKeysMenuInit();
         chooseKeysMenu.start(SignUpMenu.stage);
     }
 

@@ -45,7 +45,7 @@ public class GameSaver implements Serializable {
         serialize(Users.getCurrentUser().getUserName());
     }
 
-    private static String getGameSavePath(String username) {
+    public static String getGameSavePath(String username) {
         return "src/main/resources/view/Database/Games/" + username + ".aas";
     }
 

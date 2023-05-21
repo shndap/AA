@@ -1,4 +1,4 @@
-package model.User;
+package controller;
 
 public enum ControlKeys {
     SHOOT1("shoot1"),

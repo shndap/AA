@@ -12,7 +12,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.User.ControlKeys;
+import controller.ControlKeys;
 import view.OtherMenus.SignUpMenu;
 
 public class GameMenu extends Application {

@@ -1,5 +1,9 @@
 package model.User;
 
+import model.Saver.GameSaver;
+import view.GameMenu.PauseMenu;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -60,5 +64,18 @@ public class Users {
 
     public static boolean isGuest(String username) {
         return users.get(username).isGuest();
+    }
+
+    public static void removeGuests() {
+        ArrayList<String> toRemove = new ArrayList<>();
+        for(User user : users.values())
+            if(user.isGuest())
+                toRemove.add(user.getUserName());
+        for(String username : toRemove) {
+            removeUser(username);
+            File file = new File(GameSaver.getGameSavePath(username));
+            if(file.exists())
+                file.delete();
+        }
     }
 }

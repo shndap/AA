@@ -10,7 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import view.GameMenu.PauseMenu;
 import view.OtherMenus.SignUpMenu;
 
 import java.io.IOException;
@@ -40,14 +39,12 @@ public class ChooseKeysMenu extends Application {
     private Button right2;
     @FXML
     private Scene scene;
-    private boolean isFromPause;
 
-    public void ChooseKeysMenuInit(boolean isFromPause) throws IOException {
+    public void ChooseKeysMenuInit() throws IOException {
         load();
         scene = new Scene(pane);
         scene.addEventHandler(KeyEvent.KEY_PRESSED, this::handleKeyPressed);
         initButtons();
-        this.isFromPause = isFromPause;
     }
 
     @Override
@@ -200,8 +197,7 @@ public class ChooseKeysMenu extends Application {
     }
 
     public void back() throws Exception {
-        if (!isFromPause) new SettingMenu().start(SignUpMenu.stage);
-        else new PauseMenu().start(SignUpMenu.stage);
+        new SettingMenu().start(SignUpMenu.stage);
     }
 
     private void handleKeyPressed(KeyEvent keyEvent) {

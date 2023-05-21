@@ -10,6 +10,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import model.User.Users;
 import view.GameMenu.GameMenu;
 import view.ProfileMenu.ProfileMenu;
 import view.SettingMenu.ScoreboardMenu;
@@ -59,5 +60,6 @@ public class MainMenu extends Application {
 
     public void exit() {
         System.exit(0);
+        ProfileMenuController.removeGuests();
     }
 }

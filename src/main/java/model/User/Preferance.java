@@ -1,5 +1,6 @@
 package model.User;
 
+import controller.ControlKeys;
 import javafx.scene.input.KeyCode;
 import model.Maps;
 
@@ -64,5 +65,10 @@ public class Preferance {
             }
             default -> throw new IllegalStateException("Unexpected value: " + level);
         }
+    }
+
+    public String getKeys() {
+        String string = keys.toString();
+        return string.replace(",\\S?", "\n");
     }
 }

@@ -1,5 +1,6 @@
 package view.GameMenu;
 
+import controller.GameMenuController;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -7,12 +8,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import model.Game.Game;
 import view.OtherMenus.MainMenu;
 import view.OtherMenus.SignUpMenu;
 
 public class GameResultMenu extends Application {
-    private Game game;
 
     private static VBox configureVBox() {
         VBox vBox = new VBox();
@@ -39,14 +38,6 @@ public class GameResultMenu extends Application {
         return button;
     }
 
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }
-
     @Override
     public void start(Stage stage) throws Exception {
         Pane pane = new Pane(getVBox());
@@ -62,7 +53,7 @@ public class GameResultMenu extends Application {
         VBox vBox = configureVBox();
         Button button = getButton();
 
-        vBox.getChildren().addAll(game.getResultVBox(), button);
+        vBox.getChildren().addAll(GameMenuController.getResultVBox(), button);
         return vBox;
     }
 }

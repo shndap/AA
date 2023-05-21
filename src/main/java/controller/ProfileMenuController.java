@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import model.User.User;
 import model.User.Users;
@@ -48,5 +49,17 @@ public class ProfileMenuController {
 
     public static Image getImage(User user) {
         return new Image(user.getAvatar());
+    }
+
+    public static boolean isGuest() {
+        return Users.getCurrentUser().isGuest();
+    }
+
+    public static Alert getControlKeysAlert() {
+        return new Alert(Alert.AlertType.INFORMATION, Users.getCurrentUser().getPreferance().getKeys());
+    }
+
+    public static void removeGuests() {
+        Users.removeGuests();
     }
 }

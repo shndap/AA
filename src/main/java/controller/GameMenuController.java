@@ -2,10 +2,7 @@ package controller;
 
 import javafx.animation.*;
 import javafx.scene.Group;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
@@ -276,7 +273,7 @@ public class GameMenuController {
         return game.isLost() || game.hasWon();
     }
 
-    private static void stopActivities() {
+    public static void stopActivities() {
         rotation.stop();
         Phase2.stop();
         Phase3.stop();
@@ -293,7 +290,6 @@ public class GameMenuController {
             });
             freezingBarAnimation.stop();
         }
-        //todo: ball
     }
 
     public static void saveGame() throws IOException {
@@ -302,12 +298,9 @@ public class GameMenuController {
         new GameSaver(game, isInverse, toLeft);
     }
 
-    public static void loadGame() throws IOException, ClassNotFoundException {
-        GameSaver gameSaver = GameSaver.getSavedGamed(Users.getCurrentUser().getUserName());
-
-        isInverse = gameSaver.isInverse();
-        toLeft = gameSaver.isToLeft();
-        ;
+    public static void loadGame() throws Exception {
+        GameSaver savedGamed = GameSaver.getSavedGamed(ProfileMenuController.getCurrentUsername());
+        savedGamed.load().start(SignUpMenu.stage);
     }
 
     public static void setInverse(boolean isInverse) {
@@ -320,5 +313,9 @@ public class GameMenuController {
 
     public static boolean isInverse() {
         return isInverse;
+    }
+
+    public static VBox getResultVBox() {
+        return game.getResultVBox();
     }
 }
