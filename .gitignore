@@ -36,3 +36,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/src/main/resources/view/Database/Games/*.aas
+/src/main/resources/view/Database/Users.udb

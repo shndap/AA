@@ -2,8 +2,11 @@ package controller;
 
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
+import model.Saver.GameSaver;
 import model.User.User;
 import model.User.Users;
+
+import java.io.File;
 
 public class ProfileMenuController {
     private final User user;
@@ -61,5 +64,10 @@ public class ProfileMenuController {
 
     public static void removeGuests() {
         Users.removeGuests();
+    }
+
+    public static boolean hasSavedGame() {
+        File file = new File(GameSaver.getGameSavePath(getCurrentUsername()));
+        return file.exists();
     }
 }
