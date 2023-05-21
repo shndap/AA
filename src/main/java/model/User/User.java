@@ -4,9 +4,10 @@ import model.Game.Game;
 import model.Maps;
 import view.ProfileMenu.PremadeAvatarMenu;
 
+import java.io.Serializable;
 import java.util.Comparator;
 
-public class User {
+public class User implements Serializable {
     public static Comparator[] compareByLevel;
 
     static {

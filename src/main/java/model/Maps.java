@@ -1,9 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public enum Maps {
+public enum Maps implements Serializable {
     ORANGE(new HashSet<>(Set.of(0.0, 100.0, 120.0, 200.0, 220.0, 300.0, 320.0))),
     VOODOO(new HashSet<>(Set.of(20.0, 30.0, 40.0, 120.0, 130.0, 140.0, 220.0, 230.0, 240.0, 320.0, 330.0, 340.0))),
     RUDDER(new HashSet<>(Set.of(0.0, 60.0, 120.0, 180.0, 240.0, 300.0))),

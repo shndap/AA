@@ -1,6 +1,8 @@
 package model.User;
 
-public enum ColorMode {
+import java.io.Serializable;
+
+public enum ColorMode implements Serializable {
     BW,
     COLORFUL
 }

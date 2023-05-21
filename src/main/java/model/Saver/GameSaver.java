@@ -103,7 +103,6 @@ public class GameSaver implements Serializable {
         Game game = new Game(Users.getCurrentUser(), level.ordinal() + 1, time, score, phase,
                              centralCircle, freezingBar, shooter);
 
-        System.out.println(leftFreezeDuration);
         GameMenuController.createNewGame(game, isInverse, toLeft, leftFreezeDuration);
         GameMenu gameMenu = new GameMenu();
         gameMenu.setLoaded();

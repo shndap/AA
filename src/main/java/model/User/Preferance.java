@@ -4,9 +4,10 @@ import controller.ControlKeys;
 import javafx.scene.input.KeyCode;
 import model.Maps;
 
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Preferance {
+public class Preferance implements Serializable {
     public int level;
     public int numberOfBalls;
     public SoundMode soundMode;

@@ -40,7 +40,9 @@ public class LoginMenu extends Application {
             return;
         }
 
-        new MainMenu().start(SignUpMenu.stage);
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.setUser(name);
+        mainMenu.start(SignUpMenu.stage);
     }
 
     private void usernameNotExists() {

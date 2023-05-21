@@ -6,6 +6,7 @@ import view.GameMenu.PauseMenu;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 
 public class Users {
@@ -77,5 +78,9 @@ public class Users {
             if(file.exists())
                 file.delete();
         }
+    }
+
+    public static HashSet<User> getAllUsers() {
+        return new HashSet<>(users.values());
     }
 }

@@ -6,7 +6,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import model.Animations.FreezingAnimation;
 import model.Animations.ShootingAnimation;
@@ -28,13 +27,8 @@ public class GameMenuController {
     private static Pane pane;
     private static boolean isInverse;
     private static boolean toLeft;
-    private static Stage stage;
     private static Animation freezingAnimation;
     private static Transition freezingBarAnimation;
-
-    public static Stage getStage() {
-        return stage;
-    }
 
     public static void createNewGame() {
         game = new Game(Users.getCurrentUser());
@@ -45,7 +39,7 @@ public class GameMenuController {
         GameMenuController.game = game;
         GameMenuController.isInverse = isInverse;
         GameMenuController.toLeft = toLeft;
-        if(duration > 0.0) freeze(duration);
+        if (duration > 0.0) freeze(duration);
     }
 
     public static Group centralCircle() {
@@ -174,7 +168,6 @@ public class GameMenuController {
 
     private static void showGameResult() throws Exception {
         GameResultMenu gameResultMenu = new GameResultMenu();
-        gameResultMenu.setGame(game);
         gameResultMenu.start(SignUpMenu.stage);
     }
 
@@ -303,16 +296,16 @@ public class GameMenuController {
         savedGamed.load().start(SignUpMenu.stage);
     }
 
-    public static void setInverse(boolean isInverse) {
-        GameMenuController.isInverse = isInverse;
-    }
-
     public static Animation getRotation() {
         return rotation;
     }
 
     public static boolean isInverse() {
         return isInverse;
+    }
+
+    public static void setInverse(boolean isInverse) {
+        GameMenuController.isInverse = isInverse;
     }
 
     public static VBox getResultVBox() {

@@ -1,6 +1,8 @@
 package model.User;
 
-public enum Language {
+import java.io.Serializable;
+
+public enum Language implements Serializable {
     PERSIAN,
     ENGLISH
 }

@@ -1,6 +1,7 @@
 package view.OtherMenus;
 
 import controller.ProfileMenuController;
+import controller.StarterController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,7 +60,11 @@ public class MainMenu extends Application {
     }
 
     public void exit() {
+        StarterController.saveUsers();
         System.exit(0);
-        ProfileMenuController.removeGuests();
+    }
+
+    public void setUser(String name) {
+        ProfileMenuController.setCurrentUser(name);
     }
 }

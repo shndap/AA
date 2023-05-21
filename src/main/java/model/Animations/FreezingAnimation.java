@@ -33,7 +33,6 @@ public class FreezingAnimation {
                 actionEvent -> {
                     GameMenuController.getGame().getCentralCircle().getInnerCircle().setFill(Color.BLACK);
                     GameMenuController.continueRotation();
-                    System.out.println("finished");
                 });
 
         return sequentialTransition;

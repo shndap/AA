@@ -1,6 +1,8 @@
 package model.User;
 
-public enum SoundMode {
+import java.io.Serializable;
+
+public enum SoundMode implements Serializable {
     MUTE,
     UNMUTE
 }
