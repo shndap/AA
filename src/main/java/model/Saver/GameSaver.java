@@ -27,7 +27,7 @@ public class GameSaver implements Serializable {
         this.isInverse = isInverse;
         this.toLeft = toLeft;
         balls = game.getCentralCircle().getBalls();
-        circleAngle = GameMenuController.getRotatedAngle();
+        circleAngle = Math.toDegrees(GameMenuController.getRotatedAngle());
         progress = game.getProgress();
         cannonAngle = game.getShooter().getCannonAngle();
         shooterBalls = game.getShooter().getNumberOfBalls();
@@ -99,7 +99,9 @@ public class GameSaver implements Serializable {
         Game game = new Game(Users.getCurrentUser(), level.ordinal() + 1, time, score, phase,
                              centralCircle, freezingBar, shooter);
 
+        GameMenuController.createNewGame(game, isInverse, toLeft);
         GameMenu gameMenu = new GameMenu();
+        gameMenu.setLoaded();
         return gameMenu;
     }
 }

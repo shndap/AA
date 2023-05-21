@@ -11,9 +11,7 @@ import javafx.scene.text.Text;
 import model.User.Level;
 import model.User.User;
 
-import java.io.Serializable;
-
-public class Game implements Serializable {
+public class Game {
     private final CentralCircle centralCircle;
     private final FreezingBar freezingBar;
     private final Shooter shooter;

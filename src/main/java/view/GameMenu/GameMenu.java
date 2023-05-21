@@ -18,6 +18,11 @@ import view.OtherMenus.SignUpMenu;
 public class GameMenu extends Application {
 
     private Button pauseButton;
+    private boolean isLoaded = false;
+
+    public void setLoaded() {
+        isLoaded = true;
+    }
 
     private static void configureGroup(Group group, Pane pane, int v) {
         pane.getChildren().add(group);
@@ -34,7 +39,8 @@ public class GameMenu extends Application {
     }
 
     private Pane setPane() {
-        GameMenuController.createNewGame();
+        if(!isLoaded)
+            GameMenuController.createNewGame();
         Pane pane = configurePane();
         GameMenuController.setStackPane(pane);
         return pane;
@@ -80,6 +86,7 @@ public class GameMenu extends Application {
         hBox.setLayoutX(20);
         hBox.setLayoutY(5);
     }
+
 
     @Override
     public void start(Stage stage) throws Exception {

@@ -104,7 +104,7 @@ public class Shooter implements Serializable {
         angle = d;
         initCannon();
         group.getChildren().add(0, cannon);
-        String s = String.valueOf(angle);
+        String s = String.valueOf(angle + 0.000001);
         int end = s.indexOf('.');
         angleText.setText(s.substring(0, end + 3));
     }
