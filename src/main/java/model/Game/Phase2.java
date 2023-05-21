@@ -7,6 +7,9 @@ import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
+import model.Saver.AnimationSaver;
+
+import java.util.ArrayList;
 
 public class Phase2 {
     private static ScaleTransition scaleTransition;

@@ -86,6 +86,14 @@ public class GameMenuController {
         FreezingAnimation.freezingBarAnimation().play();
     }
 
+    public static void freeze(double duration) {
+        rotation.setRate(0.2 * rotation.getRate());
+
+        lastFreeze = System.currentTimeMillis() + duration - getFreezeDuration();
+        FreezingAnimation.getFreezingAnimation(duration).play();
+        FreezingAnimation.freezingBarAnimation(duration).play();
+    }
+
     public static void continueRotation() {
         rotation.setRate(5 * rotation.getRate());
     }
@@ -269,6 +277,7 @@ public class GameMenuController {
         Phase2.stop();
         Phase3.stop();
         Phase4.stop();
+        //todo: ball
     }
 
     public static void saveGame() throws IOException {
@@ -286,5 +295,9 @@ public class GameMenuController {
 
     public static void setInverse(boolean isInverse) {
         GameMenuController.isInverse = isInverse;
+    }
+
+    public static double getLastFreeze() {
+        return lastFreeze;
     }
 }
