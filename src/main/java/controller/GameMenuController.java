@@ -3,6 +3,7 @@ package controller;
 import javafx.animation.*;
 import javafx.scene.Group;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -16,14 +17,15 @@ import model.Game.Phase3;
 import model.Game.Phase4;
 import model.Saver.GameSaver;
 import model.User.Users;
+import view.GameMenu.GameMenu;
 import view.GameMenu.GameResultMenu;
 import view.OtherMenus.SignUpMenu;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
+import java.net.URL;
 
 public class GameMenuController {
+    private static Media boop;
     private static Game game;
     private static Timeline rotation;
     private static double lastFreeze;
@@ -33,6 +35,11 @@ public class GameMenuController {
     private static Animation freezingAnimation;
     private static Transition freezingBarAnimation;
     private static MediaPlayer mediaPlayer;
+
+    static {
+        URL url = GameMenu.class.getResource("/SoundEffect/boop.mp3");
+        boop = new Media(url.toExternalForm());
+    }
 
     public static void createNewGame() {
         game = new Game(Users.getCurrentUser());
@@ -85,7 +92,7 @@ public class GameMenuController {
     }
 
     public static void freeze(double duration) {
-        if(rotation == null) {
+        if (rotation == null) {
             startRotating();
         }
 
@@ -138,6 +145,7 @@ public class GameMenuController {
     }
 
     public static void shoot() {
+        new MediaPlayer(boop).play();
         if (isFirstShoot())
             game.getDataBar().firstShoot();
 
@@ -155,6 +163,8 @@ public class GameMenuController {
     }
 
     public static void lost() throws Exception {
+        if (mediaPlayer != null) mediaPlayer.stop();
+        noMedia();
         game.setLost(true);
         stopRotating();
         if (pane != null)
@@ -181,6 +191,8 @@ public class GameMenuController {
     }
 
     public static void won() throws Exception {
+        mediaPlayer.stop();
+        noMedia();
         game.won();
         stopRotating();
         pane.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
@@ -280,7 +292,7 @@ public class GameMenuController {
         Phase2.stop();
         Phase3.stop();
         Phase4.stop();
-        mediaPlayer.stop();
+        if (mediaPlayer != null) mediaPlayer.stop();
 
         if (freezingAnimation != null) {
             freezingAnimation.setOnFinished(actionEvent -> {
@@ -322,7 +334,15 @@ public class GameMenuController {
         return game.getResultVBox();
     }
 
+    public static MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
+    }
+
     public static void setMediaPlayer(MediaPlayer mediaPlayer) {
         GameMenuController.mediaPlayer = mediaPlayer;
+    }
+
+    public static void noMedia() {
+        mediaPlayer = null;
     }
 }

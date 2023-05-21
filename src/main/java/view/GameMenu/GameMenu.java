@@ -1,5 +1,6 @@
 package view.GameMenu;
 
+import controller.ControlKeys;
 import controller.GameMenuController;
 import controller.SettingMenuController;
 import javafx.application.Application;
@@ -14,14 +15,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
-import controller.ControlKeys;
 import view.OtherMenus.SignUpMenu;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -31,10 +30,6 @@ public class GameMenu extends Application {
     private MediaPlayer mediaPlayer;
     private Button pauseButton;
     private boolean isLoaded = false;
-
-    public void setLoaded() {
-        isLoaded = true;
-    }
 
     private static void configureGroup(Group group, Pane pane, int v) {
         pane.getChildren().add(group);
@@ -50,8 +45,28 @@ public class GameMenu extends Application {
         }
     }
 
+    public static Media getRandomSong() throws UnsupportedEncodingException, MalformedURLException {
+        String base = "src/main/resources/Music";
+        File file = new File(base);
+        ArrayList<String> songs = new ArrayList<>();
+
+        for (File song : file.listFiles())
+            if (song.isFile())
+                songs.add(song.getName());
+
+        String song = songs.get((songs.size() + new Random().nextInt() % songs.size()) % songs.size());
+
+        URL url = GameMenu.class.getResource("/Music/" + song);
+
+        return new Media(url.toExternalForm());
+    }
+
+    public void setLoaded() {
+        isLoaded = true;
+    }
+
     private Pane setPane() {
-        if(!isLoaded)
+        if (!isLoaded)
             GameMenuController.createNewGame();
         Pane pane = configurePane();
         GameMenuController.setStackPane(pane);
@@ -99,16 +114,19 @@ public class GameMenu extends Application {
         hBox.setLayoutY(5);
     }
 
-
     @Override
     public void start(Stage stage) throws Exception {
-        music = getRandomSong();
-        mediaPlayer = new MediaPlayer(music);
+        if (GameMenuController.getMediaPlayer() == null) {
+            music = getRandomSong();
+            mediaPlayer = new MediaPlayer(music);
+            GameMenuController.setMediaPlayer(mediaPlayer);
+        } else {
+            mediaPlayer = GameMenuController.getMediaPlayer();
+        }
 
         Pane pane = setPane();
 
         GameMenuController.startRotating();
-        GameMenuController.setMediaPlayer(mediaPlayer);
 
         Scene scene = new Scene(pane);
 
@@ -117,22 +135,6 @@ public class GameMenu extends Application {
         stage.setScene(scene);
         mediaPlayer.play();
         stage.show();
-    }
-
-    public static Media getRandomSong() throws UnsupportedEncodingException, MalformedURLException {
-        String base = "src/main/resources/Music";
-        File file = new File(base);
-        ArrayList<String> songs = new ArrayList<>();
-
-        for(File song : file.listFiles())
-            if (song.isFile())
-                songs.add(song.getName());
-
-        String song = songs.get((songs.size() + new Random().nextInt() % songs.size()) % songs.size());
-
-        URL url = GameMenu.class.getResource("/Music/" + song);
-
-        return new Media(url.toExternalForm());
     }
 
     private void freeze() {

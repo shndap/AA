@@ -1,8 +1,6 @@
 package controller;
 
 import model.Saver.UserSaver;
-import model.User.User;
-import model.User.Users;
 
 import java.io.IOException;
 

@@ -147,6 +147,7 @@ public class PauseMenu extends Application {
     }
 
     private void quit() throws Exception {
+        GameMenuController.noMedia();
         GameMenuController.stopActivities();
         new MainMenu().start(SignUpMenu.stage);
     }
@@ -167,6 +168,7 @@ public class PauseMenu extends Application {
     }
 
     private void restartGame() throws Exception {
+        GameMenuController.noMedia();
         GameMenuController.createNewGame();
         new GameMenu().start(SignUpMenu.stage);
     }
@@ -175,8 +177,8 @@ public class PauseMenu extends Application {
         ProfileMenuController.getControlKeysAlert().show();
     }
 
-    private void changeMusic() {
-
+    private void changeMusic() throws Exception {
+        new ChooseMusicMenu().start(SignUpMenu.stage);
     }
 
     private void back() throws Exception {
