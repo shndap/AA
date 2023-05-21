@@ -23,7 +23,8 @@ public class FreezingAnimation {
         Animation startAnimation = getAnimation(
                 getColor(Color.BLACK, Color.LIGHTBLUE, elapsed, GameMenuController.getFreezeDuration() / 2),
                 Color.LIGHTBLUE,
-                duration - GameMenuController.getFreezeDuration() / 2
+                duration - GameMenuController.getFreezeDuration() / 2,
+                elapsed
         );
         Animation endAnimation = getAnimation();
 
@@ -32,13 +33,18 @@ public class FreezingAnimation {
                 actionEvent -> {
                     GameMenuController.getGame().getCentralCircle().getInnerCircle().setFill(Color.BLACK);
                     GameMenuController.continueRotation();
+                    System.out.println("finished");
                 });
 
         return sequentialTransition;
     }
 
     private static Animation getHalfAnimation(double duration) {
-        Animation endAnimation = getAnimation(Color.LIGHTBLUE, Color.BLACK, duration);
+        double v = GameMenuController.getFreezeDuration() / 2;
+        Animation endAnimation = getAnimation(getColor(Color.LIGHTBLUE, Color.BLACK, v - duration, v),
+                                              Color.BLACK,
+                                              duration,
+                                              v - duration);
 
         endAnimation.setOnFinished(
                 actionEvent -> {
@@ -49,9 +55,10 @@ public class FreezingAnimation {
         return endAnimation;
     }
 
-    private static Animation getAnimation(Color from, Color to, double duration) {
+    private static Animation getAnimation(Color from, Color to, double duration, double elapsed) {
         return new Transition() {
-            private final double start = System.currentTimeMillis();
+            private final double start = System.currentTimeMillis() - elapsed;
+            private final double cycle = GameMenuController.getFreezeDuration() / 2;
 
             {
                 setCycleDuration(Duration.millis(duration));
@@ -59,9 +66,13 @@ public class FreezingAnimation {
 
             @Override
             protected void interpolate(double v) {
+                if (Math.abs(GameMenuController.getRotation().getRate()) > 0.2) {
+                    GameMenuController.getRotation().setRate(GameMenuController.isInverse() ? 0.2 : -0.2);
+                }
+
                 Color newColor = getColor(from, to,
-                                          (System.currentTimeMillis() - start) % getCycleDuration().toMillis(),
-                                          getCycleDuration().toMillis());
+                                          (System.currentTimeMillis() - start) % cycle,
+                                          cycle);
                 Circle innerCircle = GameMenuController.getGame().getCentralCircle().getInnerCircle();
                 innerCircle.setFill(newColor);
             }
@@ -69,7 +80,10 @@ public class FreezingAnimation {
     }
 
     private static Animation getAnimation() {
-        return getAnimation(Color.LIGHTBLUE, Color.BLACK, GameMenuController.getFreezeDuration() / 2);
+        return getAnimation(Color.LIGHTBLUE,
+                            Color.BLACK,
+                            GameMenuController.getFreezeDuration() / 2,
+                            0);
     }
 
     public static Transition freezingBarAnimation() {
@@ -94,8 +108,8 @@ public class FreezingAnimation {
     }
 
     public static Color getColor(Color from1, Color to1, double time, double cycle) {
-        double r0 = from1.getRed() * 256, g0 = from1.getGreen() * 256, b0 = from1.getBlue() * 256;
-        double rf = to1.getRed() * 256, gf = to1.getGreen() * 256, bf = to1.getBlue() * 256;
+        double r0 = from1.getRed() * 255, g0 = from1.getGreen() * 255, b0 = from1.getBlue() * 255;
+        double rf = to1.getRed() * 255, gf = to1.getGreen() * 255, bf = to1.getBlue() * 255;
 
         double r = linearValue(r0, rf, time, cycle);
         double b = linearValue(b0, bf, time, cycle);

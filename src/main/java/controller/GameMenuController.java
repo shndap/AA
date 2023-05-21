@@ -1,8 +1,6 @@
 package controller;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
+import javafx.animation.*;
 import javafx.scene.Group;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -34,6 +32,8 @@ public class GameMenuController {
     private static boolean isInverse;
     private static boolean toLeft;
     private static Stage stage;
+    private static Animation freezingAnimation;
+    private static Transition freezingBarAnimation;
 
     public static Stage getStage() {
         return stage;
@@ -44,11 +44,11 @@ public class GameMenuController {
         isInverse = false;
     }
 
-    public static void createNewGame(Game game, boolean isInverse, boolean toLeft) {
+    public static void createNewGame(Game game, boolean isInverse, boolean toLeft, double duration) {
         GameMenuController.game = game;
         GameMenuController.isInverse = isInverse;
         GameMenuController.toLeft = toLeft;
-        //todo: handle shit
+        if(duration > 0.0) freeze(duration);
     }
 
     public static Group centralCircle() {
@@ -79,23 +79,27 @@ public class GameMenuController {
     }
 
     public static void freeze() {
-        rotation.setRate(0.2 * rotation.getRate());
+        rotation.setRate(isInverse ? 0.2 : -0.2);
 
         lastFreeze = System.currentTimeMillis();
-        FreezingAnimation.getFreezingAnimation().play();
-        FreezingAnimation.freezingBarAnimation().play();
+        freezingAnimation = FreezingAnimation.getFreezingAnimation();
+        freezingAnimation.play();
+        freezingBarAnimation = FreezingAnimation.freezingBarAnimation();
+        freezingBarAnimation.play();
     }
 
     public static void freeze(double duration) {
-        rotation.setRate(0.2 * rotation.getRate());
+        rotation.setRate(isInverse ? 0.2 : -0.2);
 
         lastFreeze = System.currentTimeMillis() + duration - getFreezeDuration();
-        FreezingAnimation.getFreezingAnimation(duration).play();
-        FreezingAnimation.freezingBarAnimation(duration).play();
+        freezingAnimation = FreezingAnimation.getFreezingAnimation(duration);
+        freezingAnimation.play();
+        freezingBarAnimation = FreezingAnimation.freezingBarAnimation(duration);
+        freezingBarAnimation.play();
     }
 
     public static void continueRotation() {
-        rotation.setRate(5 * rotation.getRate());
+        rotation.setRate(isInverse ? 1 : -1);
     }
 
     public static double getFreezeDuration() {
@@ -277,6 +281,18 @@ public class GameMenuController {
         Phase2.stop();
         Phase3.stop();
         Phase4.stop();
+
+        if (freezingAnimation != null) {
+            freezingAnimation.setOnFinished(actionEvent -> {
+            });
+            freezingAnimation.stop();
+        }
+
+        if (freezingBarAnimation != null) {
+            freezingBarAnimation.setOnFinished(actionEvent -> {
+            });
+            freezingBarAnimation.stop();
+        }
         //todo: ball
     }
 
@@ -290,14 +306,19 @@ public class GameMenuController {
         GameSaver gameSaver = GameSaver.getSavedGamed(Users.getCurrentUser().getUserName());
 
         isInverse = gameSaver.isInverse();
-        toLeft = gameSaver.isToLeft();;
+        toLeft = gameSaver.isToLeft();
+        ;
     }
 
     public static void setInverse(boolean isInverse) {
         GameMenuController.isInverse = isInverse;
     }
 
-    public static double getLastFreeze() {
-        return lastFreeze;
+    public static Animation getRotation() {
+        return rotation;
+    }
+
+    public static boolean isInverse() {
+        return isInverse;
     }
 }

@@ -1,16 +1,15 @@
 package model.Saver;
 
 import controller.GameMenuController;
-import javafx.animation.Animation;
-import javafx.animation.Transition;
-import model.Game.*;
+import model.Game.CentralCircle;
+import model.Game.FreezingBar;
+import model.Game.Game;
+import model.Game.Shooter;
 import model.User.Level;
 import model.User.Users;
 import view.GameMenu.GameMenu;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 
 public class GameSaver implements Serializable {
@@ -26,7 +25,7 @@ public class GameSaver implements Serializable {
     private double time;
     private int phase;
     private int score;
-    private double lastFreeze;
+    private double leftFreezeDuration;
 
     public GameSaver(Game game, boolean isInverse, boolean toLeft) throws IOException {
         this.isInverse = isInverse;
@@ -41,7 +40,7 @@ public class GameSaver implements Serializable {
         phase = Integer.parseInt(game.getDataBar().getPhase());
         score = game.getDataBar().getScore();
         shooterX = game.getShooter().getLayoutX();
-        lastFreeze = GameMenuController.getLastFreeze();
+        leftFreezeDuration = GameMenuController.isFrozen() ? GameMenuController.getFreezeDuration() * progress : 0;
 
         serialize(Users.getCurrentUser().getUserName());
     }
@@ -98,7 +97,8 @@ public class GameSaver implements Serializable {
         Game game = new Game(Users.getCurrentUser(), level.ordinal() + 1, time, score, phase,
                              centralCircle, freezingBar, shooter);
 
-        GameMenuController.createNewGame(game, isInverse, toLeft);
+        System.out.println(leftFreezeDuration);
+        GameMenuController.createNewGame(game, isInverse, toLeft, leftFreezeDuration);
         GameMenu gameMenu = new GameMenu();
         gameMenu.setLoaded();
         return gameMenu;
