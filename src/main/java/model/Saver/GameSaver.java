@@ -13,19 +13,19 @@ import java.io.*;
 import java.util.HashSet;
 
 public class GameSaver implements Serializable {
-    private boolean isInverse;
-    private boolean toLeft;
-    private HashSet<Double> balls;
-    private double circleAngle;
-    private double progress;
-    private double cannonAngle;
-    private int shooterBalls;
-    private double shooterX;
-    private Level level;
-    private double time;
-    private int phase;
-    private int score;
-    private double leftFreezeDuration;
+    private final boolean isInverse;
+    private final boolean toLeft;
+    private final HashSet<Double> balls;
+    private final double circleAngle;
+    private final double progress;
+    private final double cannonAngle;
+    private final int shooterBalls;
+    private final double shooterX;
+    private final Level level;
+    private final double time;
+    private final int phase;
+    private final int score;
+    private final double leftFreezeDuration;
 
     public GameSaver(Game game, boolean isInverse, boolean toLeft) throws IOException {
         this.isInverse = isInverse;
@@ -57,6 +57,12 @@ public class GameSaver implements Serializable {
 
         objectInputStream.close();
         fileInputStream.close();
+
+        if(Users.isGuest(username)) {
+            String path = getGameSavePath(username);
+            File aasFile = new File(path);
+            aasFile.delete();
+        }
 
         return gameSaver;
     }

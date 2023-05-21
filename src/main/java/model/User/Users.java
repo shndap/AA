@@ -57,4 +57,8 @@ public class Users {
         Arrays.sort(array, User.compareByLevel[level + 1]);
         return new ArrayList<>(Arrays.stream(array).toList());
     }
+
+    public static boolean isGuest(String username) {
+        return users.get(username).isGuest();
+    }
 }
