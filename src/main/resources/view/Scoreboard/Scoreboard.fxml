@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
+      prefWidth="500.0" stylesheets="@../ProfileMenu/style.css" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SettingMenu.ScoreboardMenu">
+    <VBox alignment="CENTER" prefHeight="700.0" prefWidth="500.0" spacing="10.0"
+          stylesheets="@../ProfileMenu/style.css">
+        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+            <children>
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#level1" prefHeight="30.0"
+                        prefWidth="100.0" styleClass="Level1Button" text="Level 1">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#level2" prefHeight="30.0"
+                        prefWidth="100.0" styleClass="Level2Button" text="Level 2">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#level3" prefHeight="30.0"
+                        prefWidth="100.0" styleClass="Level3Button" text="Level 3">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+                <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#overall" prefHeight="30.0"
+                        prefWidth="100.0" styleClass="OverallButton" text="Overall">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Button>
+            </children>
+        </HBox>
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" fx:id="table">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+        <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#back" prefHeight="30.0" prefWidth="100.0"
+                styleClass="BackButton" text="Back">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+    </VBox>
+</Pane>

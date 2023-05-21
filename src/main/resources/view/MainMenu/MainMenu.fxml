@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" stylesheets="@../ProfileMenu/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.OtherMenus.MainMenu">
+   <VBox alignment="CENTER" prefHeight="700.0" prefWidth="500.0">
+      <children>
+         <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="450.0">
+            <children>
+               <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="406.0" spacing="10.0">
+                  <children>
+                       <Circle fx:id="circle" fill="DODGERBLUE" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+                       <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+                           <font>
+                               <Font name="Copperplate Gothic Bold" size="18.0" />
+                           </font>
+                       </Text>
+                  </children>
+               </HBox>
+               <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="137.0" styleClass="ProfileMenuButton" stylesheets="@../ProfileMenu/style.css" text="Edit Profile" onMouseClicked="#editProfile"/>
+            </children>
+         </HBox>
+          <VBox alignment="CENTER" prefHeight="696.0" prefWidth="500.0" spacing="10.0" stylesheets="@../ProfileMenu/style.css">
+              <VBox alignment="BOTTOM_CENTER" prefHeight="297.0" prefWidth="500.0" spacing="13.0" stylesheets="@../ProfileMenu/style.css">
+               <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                  <children>
+                        <Button maxHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#newGame" prefHeight="75.0" prefWidth="200.0" styleClass="NewGameButton" stylesheets="@../ProfileMenu/style.css" text="New Game">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Button>
+                        <Button mnemonicParsing="false" onMouseClicked="#loadGame" prefHeight="75.0" prefWidth="200.0" styleClass="LoadGameButton" text="Load Game" textFill="WHITE">
+                            <font>
+                                <Font size="30.0" />
+                            </font>
+                        </Button>
+                  </children>
+               </HBox>
+                  <Button mnemonicParsing="false" onMouseClicked="#showScoreboard" prefHeight="30.0" prefWidth="200.0" styleClass="ScoreBoardButton" text="Scoreboard" textFill="WHITE">
+                      <font>
+                          <Font size="15.0" />
+                      </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#setting" prefHeight="30.0" prefWidth="200.0" styleClass="SettingButton" text="Setting" textFill="WHITE">
+                      <font>
+                          <Font size="15.0" />
+                      </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onMouseClicked="#exit" prefHeight="30.0" prefWidth="200.0" styleClass="DeleteAccount" text="Exit">
+                      <font>
+                          <Font size="15.0" />
+                      </font>
+                  </Button>
+              </VBox>
+          </VBox>
+      </children>
+   </VBox>
+</Pane>

@@ -1,0 +1,76 @@
+.ChangeName {
+    -fx-background-radius: 40;
+    -fx-background-color: coral;
+}
+
+.ChangePass {
+    -fx-background-radius: 40;
+    -fx-background-color: darkseagreen;
+}
+
+.ChangeAvatar {
+    -fx-background-radius: 40;
+    -fx-background-color: mediumpurple;
+}
+
+.LogOut {
+    -fx-background-radius: 40;
+    -fx-background-color: orange;
+}
+
+.DeleteAccount {
+    -fx-background-radius: 40;
+    -fx-background-color: red;
+    -fx-text-fill: white;
+}
+
+.BackButton {
+    -fx-background-radius: 40;
+    -fx-background-color: grey;
+}
+
+.ProfileMenuButton {
+    -fx-background-radius: 40;
+    -fx-background-color: lightblue;
+}
+
+.NewGameButton {
+    -fx-background-radius: 40;
+    -fx-background-color: linear-gradient(to bottom, orange, red);
+}
+
+.LoadGameButton {
+    -fx-background-radius: 40;
+    -fx-background-color: linear-gradient(to bottom, blueviolet, royalblue);
+}
+
+.ScoreBoardButton {
+    -fx-background-radius: 40;
+    -fx-background-color: linear-gradient(to bottom, darkgoldenrod, goldenrod);
+}
+
+.SettingButton {
+    -fx-background-radius: 40;
+    -fx-background-color: slategray;
+}
+
+.Level1Button {
+    -fx-background-radius: 40;
+    -fx-background-color: linear-gradient(to bottom, yellow, orange);
+}
+
+.Level2Button {
+    -fx-background-radius: 40;
+    -fx-background-color: linear-gradient(to bottom, darkseagreen, seagreen);
+}
+
+.Level3Button {
+    -fx-background-radius: 40;
+    -fx-background-color: linear-gradient(to bottom, hotpink, darkviolet);
+}
+
+.OverallButton {
+    -fx-background-radius: 40;
+    -fx-background-color: linear-gradient(to bottom, mediumpurple, royalblue);
+}
+

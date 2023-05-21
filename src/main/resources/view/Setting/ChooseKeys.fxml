@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<Pane fx:controller="view.SettingMenu.ChooseKeysMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+      minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" stylesheets="@../ProfileMenu/style.css"
+      xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+    <VBox alignment="CENTER" prefHeight="700.0" prefWidth="500.0" spacing="10.0"
+          stylesheets="@../ProfileMenu/style.css">
+        <VBox alignment="CENTER" prefHeight="499.0" prefWidth="500.0" spacing="20.0">
+            <HBox alignment="CENTER" maxWidth="-Infinity" prefHeight="448.0" prefWidth="526.0" spacing="15.0">
+                <VBox alignment="CENTER" prefHeight="448.0" prefWidth="240.0" spacing="15.0">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Player" textAlignment="CENTER">
+                        <font>
+                            <Font size="20.0"/>
+                        </font>
+                    </Text>
+                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0" spacing="5.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Shoot">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="shoot1" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="150.0" styleClass="ChangePass" text="Button">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Button>
+                    </VBox>
+                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0" spacing="5.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Freeze">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="freeze1" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="150.0" styleClass="ChangePass" text="Button">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Button>
+                    </VBox>
+                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0" spacing="5.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="left1" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="150.0" styleClass="ChangePass" text="Button">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Button>
+                    </VBox>
+                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0" spacing="5.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Right">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="right1" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="150.0" styleClass="ChangePass" text="Button">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Button>
+                    </VBox>
+                </VBox>
+                <Line endX="100.0" startX="100.0" startY="-418.6880798339844"/>
+                <VBox alignment="CENTER" prefHeight="448.0" prefWidth="240.0" spacing="15.0">
+                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Second Player" textAlignment="CENTER">
+                        <font>
+                            <Font size="20.0"/>
+                        </font>
+                    </Text>
+                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0" spacing="5.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Shoot">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="shoot2" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="150.0" styleClass="ChangeName" text="Button">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Button>
+                    </VBox>
+                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0" spacing="5.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Freeze">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="freeze2" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="150.0" styleClass="ChangeName" text="Button">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Button>
+                    </VBox>
+                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0" spacing="5.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Left">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="left2" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="150.0" styleClass="ChangeName" text="Button">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Button>
+                    </VBox>
+                    <VBox alignment="CENTER" prefHeight="60.0" prefWidth="240.0" spacing="5.0">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Right">
+                            <font>
+                                <Font size="15.0"/>
+                            </font>
+                        </Text>
+                        <Button fx:id="right2" mnemonicParsing="false"
+                                prefHeight="30.0" prefWidth="150.0" styleClass="ChangeName" text="Button">
+                            <font>
+                                <Font size="13.0"/>
+                            </font>
+                        </Button>
+                    </VBox>
+                </VBox>
+            </HBox>
+            <Button focusTraversable="false" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#back"
+                    prefHeight="30.0" prefWidth="100.0" styleClass="BackButton" text="Back">
+                <font>
+                    <Font size="15.0"/>
+                </font>
+            </Button>
+        </VBox>
+    </VBox>
+</Pane>

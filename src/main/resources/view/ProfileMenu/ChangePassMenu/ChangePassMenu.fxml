@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="500.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProfileMenu.ChangePassMenu">
+    <VBox alignment="CENTER" prefHeight="700.0" prefWidth="500.0" spacing="10.0" stylesheets="@../style.css">
+        <Circle fill="DODGERBLUE" radius="100.0" stroke="BLACK" strokeType="INSIDE" fx:id="circle" />
+        <Text fx:id="name" strokeType="OUTSIDE" strokeWidth="0.0" text="Name">
+            <font>
+                <Font name="Copperplate Gothic Bold" size="30.0" />
+            </font>
+        </Text>
+        <VBox alignment="CENTER" prefHeight="252.0" prefWidth="500.0" spacing="13.0">
+         <children>
+             <TextField fx:id="oldPassword" maxWidth="300.0" prefHeight="0.0" prefWidth="300.0" promptText="Old Password" styleClass="usernamePass" stylesheets="@../../SignupMenu/SignupMenuSS.css" />
+             <TextField fx:id="newPassword" maxWidth="300.0" prefHeight="0.0" prefWidth="300.0" promptText="New Password" styleClass="usernamePass" stylesheets="@../../SignupMenu/SignupMenuSS.css" />
+             <TextField fx:id="confirmation" maxWidth="300.0" prefHeight="0.0" prefWidth="300.0" promptText="Password Confirmation" styleClass="usernamePass" stylesheets="@../../SignupMenu/SignupMenuSS.css" />
+             <Button mnemonicParsing="false" onMouseClicked="#change" prefHeight="30.0" prefWidth="200.0" styleClass="ChangePass" stylesheets="@../style.css" text="Change Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="160.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#back" prefHeight="30.0" prefWidth="200.0" styleClass="BackButton" stylesheets="@../style.css" text="Back">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children></VBox>
+    </VBox>
+</Pane>
