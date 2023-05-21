@@ -1,7 +1,6 @@
 package model.User;
 
 import model.Saver.GameSaver;
-import view.GameMenu.PauseMenu;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -69,13 +68,13 @@ public class Users {
 
     public static void removeGuests() {
         ArrayList<String> toRemove = new ArrayList<>();
-        for(User user : users.values())
-            if(user.isGuest())
+        for (User user : users.values())
+            if (user.isGuest())
                 toRemove.add(user.getUserName());
-        for(String username : toRemove) {
+        for (String username : toRemove) {
             removeUser(username);
             File file = new File(GameSaver.getGameSavePath(username));
-            if(file.exists())
+            if (file.exists())
                 file.delete();
         }
     }
@@ -83,7 +82,7 @@ public class Users {
     public static HashSet<User> getAllUsers() {
         HashSet<User> set = new HashSet<>();
 
-        for(User user : users.values())
+        for (User user : users.values())
             if (!user.isGuest())
                 set.add(user);
 

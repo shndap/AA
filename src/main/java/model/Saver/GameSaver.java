@@ -59,7 +59,7 @@ public class GameSaver implements Serializable {
         objectInputStream.close();
         fileInputStream.close();
 
-        if(Users.isGuest(username)) {
+        if (Users.isGuest(username)) {
             String path = getGameSavePath(username);
             File aasFile = new File(path);
             aasFile.delete();

@@ -10,9 +10,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class MusicMenuController {
-    private static HashMap<String, Media> songs;
-    private static HashMap<String, String> next;
-    private static HashMap<String, String> prev;
+    private static final HashMap<String, Media> songs;
+    private static final HashMap<String, String> next;
+    private static final HashMap<String, String> prev;
 
     static {
         songs = new HashMap<>();
@@ -29,7 +29,7 @@ public class MusicMenuController {
                 URL url = GameMenu.class.getResource("/Music/" + song.getName());
                 Media media = new Media(url.toExternalForm());
                 songs.put(song.getName(), media);
-                if(first == null) first = song.getName();
+                if (first == null) first = song.getName();
                 last = song.getName();
             }
         }
@@ -39,7 +39,7 @@ public class MusicMenuController {
 
     private static void fetchPrevNext(String first, String last) {
         String prevSong = last;
-        for(String song : songs.keySet()) {
+        for (String song : songs.keySet()) {
             prev.put(song, prevSong);
             next.put(prevSong, song);
             prevSong = song;

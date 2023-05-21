@@ -6,6 +6,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -14,7 +15,6 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
 import view.OtherMenus.SignUpMenu;
 
 public class ChooseMusicMenu extends Application {
@@ -22,6 +22,7 @@ public class ChooseMusicMenu extends Application {
     private Button prevButton;
     private Button nextButton;
     private Button backButton;
+
     @Override
     public void start(Stage stage) throws Exception {
         Pane pane = new Pane();

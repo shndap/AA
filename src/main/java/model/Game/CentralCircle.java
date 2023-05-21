@@ -19,6 +19,7 @@ public class CentralCircle implements Serializable {
     private final HashMap<Double, Circle> balls;
     private Group group;
     private long startTimeInMilis;
+
     public CentralCircle(User user) {
         innerCircle = new Circle(50);
         outerCircle = new Circle(150);

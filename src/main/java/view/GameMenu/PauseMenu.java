@@ -16,6 +16,10 @@ import view.OtherMenus.SignUpMenu;
 import java.io.IOException;
 
 public class PauseMenu extends Application {
+    private static void showSaveAlert(Alert.AlertType information, String s) {
+        new Alert(information, s).show();
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         Pane pane = new Pane();
@@ -80,7 +84,6 @@ public class PauseMenu extends Application {
         return button;
     }
 
-
     private Button getRestartButton() {
         Button button = new Button();
         button.setText("Restart");
@@ -129,7 +132,6 @@ public class PauseMenu extends Application {
         return button;
     }
 
-
     private VBox getVBox() {
         VBox vBox = new VBox(getSaveButton(),
                              getRestartButton(),
@@ -153,7 +155,7 @@ public class PauseMenu extends Application {
     }
 
     private void saveGame() throws IOException {
-        if(ProfileMenuController.isGuest()) {
+        if (ProfileMenuController.isGuest()) {
             showSaveAlert(Alert.AlertType.ERROR, "You cannot save a game as a guest.");
             return;
         }
@@ -161,10 +163,6 @@ public class PauseMenu extends Application {
         showSaveAlert(Alert.AlertType.INFORMATION, "Game saved.");
         GameMenuController.saveGame();
 
-    }
-
-    private static void showSaveAlert(Alert.AlertType information, String s) {
-        new Alert(information, s).show();
     }
 
     private void restartGame() throws Exception {

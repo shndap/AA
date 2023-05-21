@@ -25,7 +25,8 @@ import java.io.IOException;
 import java.net.URL;
 
 public class GameMenuController {
-    private static Media boop;
+    private static final Media boop;
+    private static final Media bruh;
     private static Game game;
     private static Timeline rotation;
     private static double lastFreeze;
@@ -37,8 +38,10 @@ public class GameMenuController {
     private static MediaPlayer mediaPlayer;
 
     static {
-        URL url = GameMenu.class.getResource("/SoundEffect/boop.mp3");
-        boop = new Media(url.toExternalForm());
+        URL urlBoop = GameMenu.class.getResource("/SoundEffect/boop.mp3");
+        boop = new Media(urlBoop.toExternalForm());
+        URL urlBruh = GameMenu.class.getResource("/SoundEffect/bruh.mp3");
+        bruh = new Media(urlBruh.toExternalForm());
     }
 
     public static void createNewGame() {
@@ -163,6 +166,7 @@ public class GameMenuController {
     }
 
     public static void lost() throws Exception {
+        new MediaPlayer(bruh).play();
         if (mediaPlayer != null) mediaPlayer.stop();
         noMedia();
         game.setLost(true);
