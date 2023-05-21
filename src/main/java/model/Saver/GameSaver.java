@@ -10,6 +10,7 @@ import model.User.Users;
 import view.GameMenu.GameMenu;
 
 import java.io.*;
+import java.net.MalformedURLException;
 import java.util.HashSet;
 
 public class GameSaver implements Serializable {
@@ -92,7 +93,7 @@ public class GameSaver implements Serializable {
         fileOutputStream.close();
     }
 
-    public GameMenu load() {
+    public GameMenu load() throws MalformedURLException, UnsupportedEncodingException {
         GameMenuController.setToLeft(toLeft);
         GameMenuController.setInverse(isInverse);
 

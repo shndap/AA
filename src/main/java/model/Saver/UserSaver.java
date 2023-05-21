@@ -8,7 +8,7 @@ import java.util.HashSet;
 
 public class UserSaver implements Serializable {
     public static final String path = "src/main/resources/view/Database/Users.udb";
-    private HashSet<User> users;
+    private final HashSet<User> users;
 
     public UserSaver() {
         users = Users.getAllUsers();

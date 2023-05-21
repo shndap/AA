@@ -81,6 +81,12 @@ public class Users {
     }
 
     public static HashSet<User> getAllUsers() {
-        return new HashSet<>(users.values());
+        HashSet<User> set = new HashSet<>();
+
+        for(User user : users.values())
+            if (!user.isGuest())
+                set.add(user);
+
+        return set;
     }
 }

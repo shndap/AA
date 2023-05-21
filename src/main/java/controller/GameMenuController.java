@@ -3,6 +3,7 @@ package controller;
 import javafx.animation.*;
 import javafx.scene.Group;
 import javafx.scene.layout.*;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.transform.Rotate;
@@ -19,6 +20,8 @@ import view.GameMenu.GameResultMenu;
 import view.OtherMenus.SignUpMenu;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 
 public class GameMenuController {
     private static Game game;
@@ -29,6 +32,7 @@ public class GameMenuController {
     private static boolean toLeft;
     private static Animation freezingAnimation;
     private static Transition freezingBarAnimation;
+    private static MediaPlayer mediaPlayer;
 
     public static void createNewGame() {
         game = new Game(Users.getCurrentUser());
@@ -40,6 +44,7 @@ public class GameMenuController {
         GameMenuController.isInverse = isInverse;
         GameMenuController.toLeft = toLeft;
         if (duration > 0.0) freeze(duration);
+
     }
 
     public static Group centralCircle() {
@@ -80,6 +85,10 @@ public class GameMenuController {
     }
 
     public static void freeze(double duration) {
+        if(rotation == null) {
+            startRotating();
+        }
+
         rotation.setRate(isInverse ? 0.2 : -0.2);
 
         lastFreeze = System.currentTimeMillis() + duration - getFreezeDuration();
@@ -271,6 +280,7 @@ public class GameMenuController {
         Phase2.stop();
         Phase3.stop();
         Phase4.stop();
+        mediaPlayer.stop();
 
         if (freezingAnimation != null) {
             freezingAnimation.setOnFinished(actionEvent -> {
@@ -310,5 +320,9 @@ public class GameMenuController {
 
     public static VBox getResultVBox() {
         return game.getResultVBox();
+    }
+
+    public static void setMediaPlayer(MediaPlayer mediaPlayer) {
+        GameMenuController.mediaPlayer = mediaPlayer;
     }
 }

@@ -54,7 +54,7 @@ public class User implements Serializable {
     }
 
     private static int compare(User o1, User o2) {
-        if (o1.getMaxLevel() == o1.getMaxLevel() && o1.getScoreLevel(-1) == o1.getScoreLevel(-1)) {
+        if (o1.getMaxLevel() == o2.getMaxLevel() && o1.getScoreLevel(-1) == o2.getScoreLevel(-1)) {
             return Double.compare(o1.time[o1.getMaxLevel()], o2.time[o2.getMaxLevel()]);
         }
         return -Integer.compare(o1.getScoreLevel(-1), o2.getScoreLevel(-1));
@@ -192,4 +192,5 @@ public class User implements Serializable {
     public void setKey(String buttonName, String key) {
         preferance.keys.replace(buttonName, key);
     }
+
 }
