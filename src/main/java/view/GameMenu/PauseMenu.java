@@ -3,6 +3,7 @@ package view.GameMenu;
 import controller.GameMenuController;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import model.Saver.GameSaver;
@@ -16,6 +17,22 @@ public class PauseMenu extends Application {
         Pane pane = new Pane();
         pane.setPrefSize(500, 700);
         pane.setMaxSize(500, 700);
+
+        Button button = new Button();
+        button.setText("Back");
+        button.setStyle("-fx-background-radius: 40; -fx-background-color: grey; -fx-font: 14 System;");
+        button.setOnMouseClicked(mouseEvent -> {
+            try {
+                back();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        });
+        button.setMaxSize(100, 30);
+        button.setPrefSize(100, 30);
+
+        pane.getChildren().add(button);
+
 
         GameMenuController.saveGame();
 
