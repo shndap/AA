@@ -1,5 +1,6 @@
 package view.OtherMenus;
 
+import controller.BackgroundSetter;
 import controller.GameMenuController;
 import controller.ProfileMenuController;
 import controller.StarterController;
@@ -8,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -29,6 +31,7 @@ public class MainMenu extends Application {
 
         Scene scene = new Scene(pane);
         stage.setScene(scene);
+        pane.setBackground(new Background(BackgroundSetter.MENU.getBackgroundImage()));
         stage.show();
     }
 

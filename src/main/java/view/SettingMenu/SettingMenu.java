@@ -1,5 +1,6 @@
 package view.SettingMenu;
 
+import controller.BackgroundSetter;
 import controller.SettingMenuController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
@@ -7,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -29,6 +31,7 @@ public class SettingMenu extends Application {
         SettingMenuController.load(pane);
         Scene scene = new Scene(pane);
         stage.setScene(scene);
+        pane.setBackground(new Background(BackgroundSetter.MENU.getBackgroundImage()));
         stage.show();
     }
 

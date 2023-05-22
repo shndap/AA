@@ -1,5 +1,6 @@
 package view.SettingMenu;
 
+import controller.BackgroundSetter;
 import controller.SettingMenuController;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -8,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import view.OtherMenus.SignUpMenu;
@@ -49,6 +51,7 @@ public class ChooseKeysMenu extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
+        pane.setBackground(new Background(BackgroundSetter.MENU.getBackgroundImage()));
         stage.setScene(scene);
         stage.show();
     }

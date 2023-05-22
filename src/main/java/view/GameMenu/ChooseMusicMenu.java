@@ -1,5 +1,6 @@
 package view.GameMenu;
 
+import controller.BackgroundSetter;
 import controller.GameMenuController;
 import controller.MusicMenuController;
 import javafx.application.Application;
@@ -8,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -35,6 +37,7 @@ public class ChooseMusicMenu extends Application {
 
         Scene scene = new Scene(pane);
         stage.setScene(scene);
+        pane.setBackground(new Background(BackgroundSetter.GAME.getBackgroundImage()));
         stage.show();
     }
 

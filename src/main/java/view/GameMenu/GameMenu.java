@@ -1,5 +1,6 @@
 package view.GameMenu;
 
+import controller.BackgroundSetter;
 import controller.ControlKeys;
 import controller.GameMenuController;
 import controller.SettingMenuController;
@@ -10,6 +11,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.Media;
@@ -133,6 +135,7 @@ public class GameMenu extends Application {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, this::handleKeys);
 
         stage.setScene(scene);
+        pane.setBackground(new Background(BackgroundSetter.GAME.getBackgroundImage()));
         mediaPlayer.play();
         stage.show();
     }

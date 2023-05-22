@@ -1,8 +1,10 @@
 package view.SettingMenu;
 
+import controller.BackgroundSetter;
 import controller.ScoreboardController;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import view.OtherMenus.MainMenu;
@@ -34,6 +36,7 @@ public class ScoreboardMenu extends Application {
         scoreboardController.initPane(level);
         Scene scene = new Scene(scoreboardController.getPane());
         stage.setScene(scene);
+        scoreboardController.getPane().setBackground(new Background(BackgroundSetter.MENU.getBackgroundImage()));
         stage.show();
     }
 

@@ -1,5 +1,6 @@
 package view.GameMenu;
 
+import controller.BackgroundSetter;
 import controller.GameMenuController;
 import controller.ProfileMenuController;
 import javafx.application.Application;
@@ -7,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -33,6 +35,7 @@ public class PauseMenu extends Application {
 
         Scene scene = new Scene(pane);
         stage.setScene(scene);
+        pane.setBackground(new Background(BackgroundSetter.GAME.getBackgroundImage()));
         stage.show();
     }
 

@@ -1,5 +1,6 @@
 package view.SettingMenu;
 
+import controller.BackgroundSetter;
 import controller.SettingMenuController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -9,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -48,6 +50,7 @@ public class ChooseMapMenu extends Application {
 
 
         Scene scene = new Scene(pane);
+        pane.setBackground(new Background(BackgroundSetter.MENU.getBackgroundImage()));
         stage.setScene(scene);
         stage.show();
     }

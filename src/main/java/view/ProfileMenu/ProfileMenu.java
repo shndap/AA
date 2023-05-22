@@ -1,11 +1,13 @@
 package view.ProfileMenu;
 
+import controller.BackgroundSetter;
 import controller.ProfileMenuController;
 import controller.SignUpMenuController;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -40,6 +42,7 @@ public class ProfileMenu extends Application {
 
         Scene scene = new Scene(gamePane);
         stage.setScene(scene);
+        gamePane.setBackground(new Background(BackgroundSetter.MENU.getBackgroundImage()));
         stage.show();
     }
 
