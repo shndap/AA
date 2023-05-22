@@ -125,7 +125,7 @@ public class CentralCircle implements Serializable {
         double centerY = ball.localToScene(ball.getBoundsInLocal()).getCenterY();
         double angle = (getAngle(centerX, centerY) + rotAngle) % 360;
 
-        if(pane != null) pane.getChildren().remove(ball);
+        if (pane != null) pane.getChildren().remove(ball);
         addBall(angle);
         GameMenuController.addFreezingPoint();
         coverLines();

@@ -14,11 +14,7 @@ public enum BackgroundSetter {
     LOGIN("3.jpg"),
     MENU("2.jpg");
 
-    private BackgroundImage backgroundImage;
-
-    public BackgroundImage getBackgroundImage() {
-        return backgroundImage;
-    }
+    private final BackgroundImage backgroundImage;
 
     BackgroundSetter(String name) {
         URL url = GameMenu.class.getResource("/Wallpapers/" + name);
@@ -28,5 +24,9 @@ public enum BackgroundSetter {
                                               BackgroundRepeat.NO_REPEAT,
                                               BackgroundPosition.CENTER,
                                               BackgroundSize.DEFAULT);
+    }
+
+    public BackgroundImage getBackgroundImage() {
+        return backgroundImage;
     }
 }
