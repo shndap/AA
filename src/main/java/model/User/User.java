@@ -40,7 +40,7 @@ public class User implements Serializable {
 
     private static int compare3(User o1, User o2) {
         if (o1.score[2] == o2.score[2]) return Double.compare(o1.time[2], o2.time[2]);
-        return -Integer.compare(o1.score[2], o2.score[3]);
+        return -Integer.compare(o1.score[2], o2.score[2]);
     }
 
     private static int compare2(User o1, User o2) {
