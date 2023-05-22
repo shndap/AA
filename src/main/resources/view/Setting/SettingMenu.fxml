@@ -50,7 +50,7 @@
                               <Font size="15.0"/>
                            </font>
                         </Text>
-                        <Slider blockIncrement="1.0" majorTickUnit="1.0" min="20.0" minorTickCount="0" prefHeight="38.0"
+                        <Slider blockIncrement="1.0" majorTickUnit="1.0" min="10.0" max = "50.0" minorTickCount="0" prefHeight="38.0"
                                 prefWidth="300.0" snapToTicks="true" fx:id="ballsBar"/>
                         <Text fx:id="numberOfBallsName" strokeType="OUTSIDE" strokeWidth="0.0" text="000"
                               textAlignment="CENTER" wrappingWidth="61.050782918930054">
